@@ -1,0 +1,35 @@
+<% content_for :title, "Product catalogue" %>
+
+<header class="page-header">
+  <p class="eyebrow">Products</p>
+  <h1>Product catalogue</h1>
+  <p>This page shows all products and the collections they are in.</p>
+</header>
+
+<section class="catalogue" aria-label="Product catalogue">
+  <% if @products.empty? %>
+    <p>No products yet.</p>
+  <% else %>
+    <table>
+      <thead>
+        <tr><th scope="col">Product</th><th scope="col">Collections</th></tr>
+      </thead>
+      <tbody>
+        <% @products.each do |product| %>
+          <tr id="<%= dom_id(product) %>">
+            <th scope="row"><%= product.name %></th>
+            <td>
+              <% if product.collections.empty? %>
+                <span class="muted">-</span>
+              <% else %>
+                <% product.collections.sort_by(&:name).each do |collection| %>
+                  <span class="badge"><%= collection.name %></span>
+                <% end %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</section>

@@ -1,0 +1,12 @@
+red_sale:
+  product: red
+  collection: sale
+blue_summer:
+  product: blue
+  collection: summer
+green_sale:
+  product: green
+  collection: sale
+green_summer:
+  product: green
+  collection: summer

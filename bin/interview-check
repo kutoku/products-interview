@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+require "rubygems"
+
+unless Gem::Requirement.new(">= 3.3", "< 3.5").satisfied_by?(Gem::Version.new(RUBY_VERSION))
+  abort "Use Ruby 3.3.x or 3.4.x. Current version: #{RUBY_VERSION}"
+end
+
+Dir.chdir File.expand_path("..", __dir__) do
+  abort "Run bin/setup first to install dependencies." unless system("bundle", "check")
+  checks = [
+    ["bin/rails", "db:prepare"],
+    ["bin/rails", "runner", 'expected = { "Red shirt" => ["Sale"], "Blue shirt" => ["Summer"], "Green shirt" => ["Sale", "Summer"], "Black shirt" => [] }; expected.each { |name, memberships| product = Product.find_by(name: name); abort "Sample data missing or changed. Run bin/rails db:seed." unless product && product.collections.pluck(:name).sort == memberships }; puts "Development database and sample data OK"'],
+    ["bin/rails", "test"],
+    ["bin/rails", "zeitwerk:check"]
+  ]
+  checks.each { |command| abort "Check failed: #{command.join(' ')}" unless system(*command) }
+  puts "All checks passed. Start bin/rails server and open http://localhost:3000."
+end
