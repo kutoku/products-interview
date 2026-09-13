@@ -3,10 +3,7 @@
 /config/credentials/*.key
 /log/*
 !/log/.keep
-/tmp/*
-!/tmp/.keep
-!/tmp/pids/
-!/tmp/pids/.keep
+/tmp/
 /storage/*
 !/storage/.keep
 /public/assets

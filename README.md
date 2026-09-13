@@ -11,12 +11,13 @@ A small Rails product catalogue for a technical interview. Products can belong t
 
 ## Install and run
 
-Clone the repository using the URL provided by the interviewer:
+Clone the repository and start the app:
 
 ```sh
-git clone REPOSITORY_URL products
-cd products
+git clone https://github.com/kutoku/products-interview.git
+cd products-interview
 bin/setup --skip-server
+# Custom check: verify Ruby, dependencies, database, sample data, tests, and Rails autoloading.
 bin/interview-check
 bin/rails server
 ```
@@ -38,9 +39,9 @@ Have the app running before the interview. No feature work is required beforehan
 
 Allow approximately 90 minutes. We will work together over a screen share using your usual editor, terminal, and browser.
 
-During the call, the interviewer will share a GitHub gist link containing a patch that adds the feature for the exercise. We will guide you through applying it; no patch preparation is needed beforehand.
+During the call, we'll share a GitHub gist link containing a patch that adds the feature for the exercise. We will guide you through applying it; no patch preparation is needed beforehand.
 
-1. **Get ready:** confirm the app works and receive a proposed feature from the interviewer.
+1. **Get ready:** confirm the app works, then we'll introduce the proposed feature.
 2. **Investigate:** reproduce a reported issue, explain what you find, and clarify the intended behaviour.
 3. **Make a change:** implement a correction and demonstrate how you verified it.
 4. **Extend the feature:** discuss a follow-up requirement and work on its implementation.
